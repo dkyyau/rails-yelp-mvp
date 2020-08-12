@@ -1,7 +1,10 @@
 <h1>Restaurants</h1>
 
-<ul>
+<ul class="list-unstyled">
   <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.name %></li>
+    <li class="my-2 d-flex justify-content-between">
+      <%= restaurant.name %>
+      <%= link_to "See details", restaurant_path(restaurant), class: "btn btn-outline-secondary"%>
+    </li>
   <% end %>
 </ul>
