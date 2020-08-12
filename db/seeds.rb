@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
-Faker::Config.locale = "en-GB"
+puts "Cleaning database..."
+Restaurant.destroy_all
+
+Faker::Config.locale = 'en-GB'
+puts "Creating restaurants..."
 5.times do
   restaurant = Restaurant.new(
     name: Faker::Restaurant.unique.name,
@@ -17,3 +21,5 @@ Faker::Config.locale = "en-GB"
   )
   restaurant.save
 end
+
+puts "Finished!"
